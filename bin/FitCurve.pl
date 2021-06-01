@@ -1,0 +1,42 @@
+#!/usr/bin/perl -w
+use strict;
+use Statistics::R;
+my $outDir=shift;
+die "perl $0 <Outdir> \n" unless defined $outDir;
+`mkdir -p $outDir/Depth/curve`;
+`mkdir -p $outDir/Depth/formula`;
+open OUT, ">$outDir/Depth/formula/para.txt"or die $!;
+print OUT "sample\ta\tb\tRsquanre\n";
+for my $file (glob("$outDir/Depth/GeneNum/*txt")){
+	my $sample=(split /\//,$file)[-1];
+	$sample=~s/.txt//;
+	print "$sample\n";
+	print OUT "$sample\t";
+	my $R = Statistics::R->new( bin => '/home/aipingzhang/anaconda2/bin/R' );
+	$R->run(qq`library(dplyr)`);
+	$R->run(qq`library(tidyr)`);
+	$R->run(qq`library(ggplot2)`);
+	$R->run(qq`mk<- read.table("$file",header = T,sep="\t")`);
+	$R->run(qq`mk.para <- list()`);
+	$R->run(qq`mk.line <- list()`);
+	$R->run(qq`mk.model <- list()`);
+	$R->run(qq`x <- mk\$ReadNum`);
+	$R->run(qq`y <- mk\$GeneNum`);
+	$R->run(qq`control1 <- nls.control(maxiter= 100,tol=1e-02, warnOnly=TRUE)`);
+	$R->run(qq`model <- nls(y ~ a * I(x^b),start=list(a=0.1,b=1),control= control1)`);
+	$R->run(qq`RSS.p <- sum(residuals(model)^2)`);
+	$R->run(qq`TSS <- sum((y - mean(y))^2)`);
+	$R->run(qq`R_squared = 1 - (RSS.p/TSS)`);
+	$R->run(qq`paras <- as.numeric(summary(model)\$coefficients[,1])`);
+	my $para=$R->run(qq` c(paras,R_squared)`);
+#	print "$sample\t$para\n";
+	$R->run(qq`xmin<-min(x)`);
+	$R->run(qq`xmax<-max(x)`);
+	$R->run(qq`df2 <- data.frame(x=seq(xmin,xmax,xmin),y=predict(model, list(x=seq(xmin,xmax,xmin))))`);
+	$R->run(qq`df2\$sample<-mk\$sample`);
+	$R->run(qq`mk.line<-df2`);
+	$R->run(qq`options(repr.plot.width=18,repr.plot.height=12)`);
+	$R->run(qq`ggplot() + geom_point(data=mk.line,aes(x,y),size=1,shape=1) + geom_line(data=mk.line,aes(x=x,y=y),col='red') + xlab("reads") + ylab("NO. of genes") + theme_bw() + theme(axis.text.x = element_text(angle = 45,hjust=1))`);
+	$R->run(qq`ggsave("$outDir/Depth/curve/$sample.fitted_curve.pdf",width=18,height=12)`);
+	print OUT "$para\n";
+	}	
