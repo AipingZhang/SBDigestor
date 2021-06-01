@@ -1,7 +1,8 @@
 # SBDigestor
 SB Digestor: a tailored driver genes identification tool for dissect heterogenous of Sleeping Beauty induced tumors
 
-Fig1.pdf![image](https://user-images.githubusercontent.com/66343257/120283619-f21da980-c2ed-11eb-821c-705b65bd7f53.png)
+![image](https://user-images.githubusercontent.com/66343257/120283619-f21da980-c2ed-11eb-821c-705b65bd7f53.png)
+                                            Alorithem and Pipeline
 
 
 Installation
