@@ -7,7 +7,7 @@ SB Digestor: a tailored driver genes identification tool for dissect heterogenou
 
 Installation
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Download the bin directory.
+Download the bin directory and uncompress it.
 
 
 Installation of other dependencies 
