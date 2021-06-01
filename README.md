@@ -6,7 +6,7 @@ Installation
 Download the bin directory.
 
 
-Installation of other dependencies
+Installation of other dependencies 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 cutadpt：https://cutadapt.readthedocs.io/en/stable/
 
@@ -16,8 +16,10 @@ samtools: http://www.htslib.org/
 
 seqtk: https://github.com/lh3/seqtk
 
-perl modules: 
+For those above tools, please install or link them to the bin folder
+
+Perl modules: 
 
 Parallel::ForkManager;
 
-Statistics::R;
+Statistics::R.
