@@ -1,5 +1,6 @@
 # SBDigestor
 SB Digestor: a tailored driver genes identification tool for dissect heterogenous of Sleeping Beauty induced tumors
+The goal of SB Digestor is to apply tumor heterogeneity 
 
 ![image](https://user-images.githubusercontent.com/66343257/120285989-65281f80-c2f0-11eb-9bda-8d37637a7919.png)
 
