@@ -2,9 +2,10 @@
 SB Digestor: a tailored driver genes identification tool for dissect heterogenous of Sleeping Beauty induced tumors
 The goal of SB Digestor is to digest tumor heterogeneity to improve identify driver genes of Sleepling Beauty tumors.In our computational algorithm, we not only took statistical significance into account just like other tools did, but al so we consider the biological aspects like tumor heterogeneity, which may cause missing driver gene identification. We firstly conducted the saturation analysis individually to identify the inter-tumor heterogeneity, then based on which we calculated the tailored driver genes identification parameter for further data processing. As each tumor analyzed separately, so we could get much stable results, no matter how many sequenced reads and how large scale of samples. The application of saturation analysis could precisely reflect the correlation between the reads number and identified driver gene number, therefore it benefits the data depth cut-off threshold selection.
 
-![Image](https://github.com/AipingZhang/SBDigestor/blob/main/main_pipeline.png)
 
 
+
+<img width="1496" alt="main_pipeline" src="https://user-images.githubusercontent.com/66343257/166651720-e0cfa1a8-1c62-4ef6-8e54-b4b8c8d419a3.png">
 
 
 
