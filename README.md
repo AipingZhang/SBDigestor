@@ -4,6 +4,7 @@ The goal of SB Digestor is to digest tumor heterogeneity to improve identify dri
 
 ![Image](https://github.com/AipingZhang/SBDigestor/blob/main/Main%20pipeline.pdf)
 
+![Picture 1](https://user-images.githubusercontent.com/66343257/166647138-ad321e68-46f5-4f8c-a0c1-9437c20b8a3a.jpg)
 
 
 
